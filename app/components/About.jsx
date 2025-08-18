@@ -99,8 +99,8 @@ export default function AboutSection() {
                     </h3>
                     <p className="fs-5 text-muted mb-4 bio-text">
                       Passionate Full Stack Developer with a focus on building scalable, high-performance applications. 
-                      I&apos;m eager to tackle dynamic challenges and leverage the MERN stack to craft responsive user interfaces. 
-                      I bring demonstrated expertise in backend development, API integration, and cloud deployment, and I&apos;m 
+                      I&#39;m eager to tackle dynamic challenges and leverage the MERN stack to craft responsive user interfaces. 
+                      I bring demonstrated expertise in backend development, API integration, and cloud deployment, and I&#39;m 
                       excited to drive innovative projects forward.
                     </p>
                     <p className="fs-6 text-muted bio-text">
