@@ -85,7 +85,7 @@ export default function HeroSection() {
             <div className="col-12 col-xl-8">
               <div className="text-content-container">
                 <div className="mb-2 fade-in-animation" style={{animationDelay: '0.1s'}}>
-                  <p className="fs-5 text-muted fw-medium mb-0">Hello, I'm</p>
+                  <p className="fs-5 text-muted fw-medium mb-0">Hello, I&apos;m</p>
                 </div>
                 
                 <h1 className="display-1 fw-bold text-dark mb-4 lh-1 fade-in-animation main-title" style={{animationDelay: '0.3s'}}>

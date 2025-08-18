@@ -1,5 +1,3 @@
-const isProd = process.env.NODE_ENV === 'production'
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // Generate a fully static site in ./out (required for GitHub Pages)
@@ -8,9 +6,10 @@ const nextConfig = {
   trailingSlash: true,
   // If you use next/image, this avoids remote optimization on Pages
   images: { unoptimized: true },
-  // Deploying to project page: username.github.io/my_portfolio
-  basePath: isProd ? '/my_portfolio' : '',
-  assetPrefix: isProd ? '/my_portfolio/' : '',
+  // If deploying to a project page like username.github.io/repo,
+  // uncomment BOTH lines below and replace REPO_NAME accordingly.
+  // basePath: '/REPO_NAME',
+  // assetPrefix: '/REPO_NAME/',
 }
 
 module.exports = nextConfig
