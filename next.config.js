@@ -6,10 +6,9 @@ const nextConfig = {
   trailingSlash: true,
   // If you use next/image, this avoids remote optimization on Pages
   images: { unoptimized: true },
-  // If deploying to a project page like username.github.io/repo,
-  // uncomment BOTH lines below and replace REPO_NAME accordingly.
-  // basePath: '/REPO_NAME',
-  // assetPrefix: '/REPO_NAME/',
+  // Deploying to project page: username.github.io/my_portfolio
+  basePath: '/my_portfolio',
+  assetPrefix: '/my_portfolio/',
 }
 
 module.exports = nextConfig
