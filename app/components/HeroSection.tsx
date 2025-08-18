@@ -107,7 +107,7 @@ export default function HeroSection() {
                       View My Work
                     </button>
                   </Link>
-                  <Link href="/contact" className="text-decoration-none">
+                  <Link href="mailto:malarharish007@gmail.com">
                   <button className="btn btn-outline-warning btn-lg px-4 py-3 fw-semibold rounded-3 custom-btn-secondary">
                     Get In Touch
                   </button>
