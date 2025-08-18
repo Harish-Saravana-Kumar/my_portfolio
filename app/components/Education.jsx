@@ -19,7 +19,7 @@ export default function EducationCertificationsSection() {
       institution: "Sri Eshwar College of Engineering, Coimbatore",
       degree: "Bachelor of Technology (Artificial Intelligence & Data Science)",
       duration: "2023 - 2027",
-      result: "CGPA: 7.96"
+      result: "CGPA: 8.05"
     },
     {
       institution: "Government Higher Secondary School, Coimbatore",
