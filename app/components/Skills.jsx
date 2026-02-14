@@ -2,16 +2,17 @@
 
 import { useEffect, useRef } from "react";
 import Typed from "typed.js";
-import Link from "next/link";
 import { 
-  MdHome, MdPerson, MdBuild, MdEmojiEvents, MdCloud, MdCode
+  MdCloud, MdCode
 } from "react-icons/md";
-import { FiGrid, FiMail } from "react-icons/fi";
 import { 
   SiJavascript, SiReact, SiHtml5, SiCss3, SiBootstrap, SiTailwindcss,
   SiNodedotjs, SiExpress, SiMongodb, SiMysql,
-  SiGit, SiGithub, SiPostman, SiJenkins, SiGitlab
+  SiGit, SiGithub, SiPostman, SiJenkins, SiGitlab,
+  SiPython, SiFlask, SiFastapi
 } from "react-icons/si";
+import { FaJava } from "react-icons/fa";
+import { TbBrandCpp } from "react-icons/tb";
 
 export default function SkillsSection() {
   const el = useRef(null);
@@ -35,32 +36,36 @@ export default function SkillsSection() {
     return () => typed.destroy();
   }, []);
 
-  const navItems = [
-    { name: "Home", path: "/", icon: <MdHome /> },
-    { name: "About", path: "/about", icon: <MdPerson /> },
-    { name: "Skills", path: "/skills", icon: <MdBuild /> },
-    { name: "Projects", path: "/projects", icon: <FiGrid /> },
-    { name: "Education & Certifications", path: "/education", icon: <MdEmojiEvents  /> },
-  ];
 
   // Skills with levels 0-100 for glow and size scaling
   const skillCategories = [
+    {
+      title: "Programming",
+      skills: [
+        { icon: <FaJava />, name: "Java", level: 85, color: "#007396" },
+        { icon: <TbBrandCpp />, name: "C", level: 80, color: "#A8B9CC" },
+        { icon: <SiPython />, name: "Python", level: 85, color: "#3776AB" },
+        { icon: <SiJavascript />, name: "JavaScript", level: 90, color: "#F7DF1E" },
+        { icon: <MdCode />, name: "DSA & OOPs", level: 85, color: "#232F3E" }
+      ]
+    },
     {
       title: "Frontend",
       skills: [
         { icon: <SiHtml5 />, name: "HTML5", level: 95, color: "#E34F26" },
         { icon: <SiCss3 />, name: "CSS3", level: 90, color: "#1572B6" },
-        { icon: <SiJavascript />, name: "JavaScript", level: 90, color: "#F7DF1E" },
         { icon: <SiReact />, name: "React.js", level: 85, color: "#61DAFB" },
-        { icon: <SiBootstrap />, name: "Bootstrap", level: 85, color: "#7952B3" },
-        { icon: <SiTailwindcss />, name: "Tailwind CSS", level: 80, color: "#06B6D4" }
+        { icon: <SiBootstrap />, name: "Bootstrap CSS", level: 85, color: "#7952B3" }
       ]
     },
     {
       title: "Backend",
       skills: [
         { icon: <SiNodedotjs />, name: "Node.js", level: 85, color: "#339933" },
-        { icon: <SiExpress />, name: "Express.js", level: 80, color: "#000000" }
+        { icon: <SiExpress />, name: "Express.js", level: 80, color: "#000000" },
+        { icon: <SiFastapi />, name: "FastAPI", level: 80, color: "#009688" },
+        { icon: <SiFlask />, name: "Flask", level: 75, color: "#000000" },
+        { icon: <MdCode />, name: "REST APIs", level: 85, color: "#FF6C37" }
       ]
     },
     {
@@ -68,24 +73,18 @@ export default function SkillsSection() {
       skills: [
         { icon: <SiMongodb />, name: "MongoDB", level: 85, color: "#47A248" },
         { icon: <SiMysql />, name: "MySQL", level: 80, color: "#4479A1" },
-        { icon: <MdCloud />, name: "AWS Basics", level: 70, color: "#FF9900" }
+        { icon: <MdCloud />, name: "AWS (Basics)", level: 70, color: "#FF9900" }
       ]
     },
     {
-      title: "DevOps & CI/CD",
+      title: "DevOps & Tools",
       skills: [
-        { icon: <SiGitlab />, name: "GitLab", level: 90, color: "#FC6D26" },
-        { icon: <SiJenkins />, name: "Jenkins", level: 85, color: "#D24939" },
         { icon: <SiGit />, name: "Git", level: 90, color: "#F05032" },
-        { icon: <MdCode />, name: "CI/CD Pipelines", level: 85, color: "#007ACC" }
-      ]
-    },
-    {
-      title: "Tools & Platforms",
-      skills: [
         { icon: <SiGithub />, name: "GitHub", level: 90, color: "#181717" },
-        { icon: <SiPostman />, name: "Postman", level: 80, color: "#FF6C37" },
-        { icon: <MdCode />, name: "VS Code", level: 95, color: "#007ACC" }
+        { icon: <MdCode />, name: "Docker", level: 80, color: "#2496ED" },
+        { icon: <SiJenkins />, name: "Jenkins", level: 80, color: "#D24939" },
+        { icon: <MdCode />, name: "CI/CD", level: 85, color: "#007ACC" },
+        { icon: <SiPostman />, name: "Postman", level: 80, color: "#FF6C37" }
       ]
     }
   ];
@@ -99,69 +98,76 @@ export default function SkillsSection() {
       />
 
       <section className="position-relative d-flex flex-column align-items-center justify-content-center min-vh-100 skills-section py-5 px-3">
-        <div className="mb-5 text-center">
-          <p className="fs-5 text-muted fw-medium mb-0">Technical Proficiencies</p>
+        <div className="page-header-container mb-5 text-center fade-in-animation" style={{animationDelay: '0.1s'}}>
+          <div className="header-badge mb-3">
+            <span className="me-2">⚡</span> Technical Proficiencies
+          </div>
           <h1 className="display-2 fw-bold text-dark mb-3">
             <span className="aws-gradient-text">Skills</span>
           </h1>
           <h2 className="display-6 fw-bold typing-container" style={{ minHeight: "3rem" }}>
             <span ref={el} className="aws-rainbow-text" />
           </h2>
+          <div className="header-line mx-auto mt-3"></div>
         </div>
 
         {/* Explanation paragraph */}
-        <div className="mb-5 mx-auto" style={{ maxWidth: 800, color: "#232F3E", fontSize: "1.15rem", lineHeight: 1.6, textAlign: "center" }}>
+        <div className="mb-5 mx-auto fade-in-animation" style={{ maxWidth: 800, color: "#232F3E", fontSize: "1.15rem", lineHeight: 1.6, textAlign: "center", animationDelay: '0.3s' }}>
           <p>
             I build projects by combining these technologies to create scalable full-stack applications with smooth user experiences. My expertise in frontend frameworks like React.js, backend development with Node.js and Express, integrated with databases such as MongoDB and MySQL, allow me to build robust solutions. Utilizing DevOps tools including GitLab, Jenkins, and CI/CD pipelines ensures continuous integration and efficient deployment processes for reliable and fast delivery.
           </p>
         </div>
 
 
-        <div className="d-flex flex-wrap justify-content-center gap-5" style={{ maxWidth: 1200 }}>
-          {skillCategories.map((category, idx) => (
-            <div key={idx} className="skill-category-card p-4 rounded-4 shadow-sm" style={{ width: 280 }}>
-              <h3 className="section-title text-center mb-4">{category.title}</h3>
-              <ul className="list-unstyled mb-0 d-flex flex-column gap-3">
-                {category.skills.map((skill, sidx) => {
-                  const iconSize = 28 + (skill.level / 100) * 20; // icon size between 28 and 48
-                  const glowIntensity = skill.level / 100;
-                  return (
-                    <li key={sidx} className="d-flex align-items-center gap-3">
-                      <div
-                        className="skill-icon"
-                        style={{
-                          color: skill.color,
-                          fontSize: iconSize,
-                          filter: `drop-shadow(0 0 ${2 + glowIntensity * 6}px ${skill.color})`,
-                          transition: "all 0.3s ease"
-                        }}
-                        aria-label={`${skill.name} icon`}
-                      >
-                        {skill.icon}
-                      </div>
-                      <span className="fw-semibold" style={{ fontSize: 18 }}>{skill.name}</span>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-          ))}
+        <div className="skills-cascade-container mx-auto" style={{ maxWidth: 1000, width: '100%' }}>
+          {skillCategories.map((category, idx) => {
+            const totalCats = skillCategories.length;
+            const mid = Math.floor(totalCats / 2);
+            const indentLevel = idx <= mid ? idx : totalCats - 1 - idx;
+            const slideFrom = idx % 2 === 0 ? 'left' : 'right';
+            return (
+              <div 
+                key={idx} 
+                className={`cascade-card-wrapper cascade-slide-${slideFrom}`}
+                style={{ 
+                  marginLeft: `${indentLevel * 60}px`,
+                  animationDelay: `${0.3 + idx * 0.18}s`
+                }}
+              >
+                <div className="cascade-card p-4 rounded-4 shadow-sm" style={{animationDelay: `${idx * 0.6}s`}}>
+                  <div className="cascade-card-accent"></div>
+                  <h3 className="cascade-title mb-3">
+                    <span className="cascade-number">{String(idx + 1).padStart(2, '0')}</span>
+                    {category.title}
+                  </h3>
+                  <div className="d-flex flex-wrap gap-3" style={{paddingLeft: '12px'}}>
+                    {category.skills.map((skill, sidx) => {
+                      const iconSize = 28 + (skill.level / 100) * 20;
+                      const glowIntensity = skill.level / 100;
+                      return (
+                        <div key={sidx} className="skill-chip d-flex align-items-center gap-2 px-3 py-2 rounded-pill">
+                          <div
+                            style={{
+                              color: skill.color,
+                              fontSize: iconSize,
+                              filter: `drop-shadow(0 0 ${2 + glowIntensity * 6}px ${skill.color})`,
+                              transition: 'all 0.3s ease'
+                            }}
+                            aria-label={`${skill.name} icon`}
+                          >
+                            {skill.icon}
+                          </div>
+                          <span className="fw-semibold" style={{ fontSize: 15 }}>{skill.name}</span>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              </div>
+            );
+          })}
         </div>
 
-        {/* Vertical Icon Sidebar */}
-        <div className="vertical-icon-sidebar right">
-          {navItems.map((item) => (
-            <Link
-              key={item.name}
-              href={item.path}
-              className={`icon-nav-btn${item.path === "/skills" ? " active" : ""}`}
-              aria-label={item.name}
-            >
-              <span className="icon">{item.icon}</span>
-              <span className="icon-tooltip">{item.name}</span>
-            </Link>
-          ))}
-        </div>
 
         <style jsx>{`
           .skills-section {
@@ -170,22 +176,109 @@ export default function SkillsSection() {
             padding-bottom: 4rem;
             color: #232f3e;
           }
-
-          .skill-category-card {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 153, 0, 0.1);
-            transition: box-shadow 0.3s ease, transform 0.3s ease;
+          .page-header-container { position: relative; z-index: 2; }
+          .header-badge {
+            display: inline-flex; align-items: center;
+            background: rgba(255,153,0,0.08); color: #FF9900;
+            font-weight: 700; font-size: 0.95rem; letter-spacing: 0.5px;
+            padding: 8px 20px; border-radius: 50px;
+            border: 1px solid rgba(255,153,0,0.2);
+            animation: badge-glow 3s ease-in-out infinite;
           }
-          .skill-category-card:hover {
-            box-shadow: 0 15px 45px rgba(255, 153, 0, 0.15);
-            transform: translateY(-6px);
+          @keyframes badge-glow {
+            0%,100% { box-shadow: 0 0 10px rgba(255,153,0,0.1); }
+            50% { box-shadow: 0 0 20px rgba(255,153,0,0.25); }
           }
+          .header-line {
+            width: 80px; height: 4px; border-radius: 2px;
+            background: linear-gradient(90deg, #FF9900, #FF7A00, #FFB84D);
+            animation: line-expand 1.5s ease-out forwards;
+          }
+          @keyframes line-expand { from { width: 0; } to { width: 80px; } }
+          .fade-in-animation { opacity: 0; animation: fade-in-up 0.8s ease-out forwards; }
+          @keyframes fade-in-up { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 
-          .section-title {
+          /* Cascade Layout */
+          .skills-cascade-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            padding: 0 1rem;
+          }
+          .cascade-card-wrapper {
+            opacity: 0;
+            transition: margin 0.3s ease;
+          }
+          .cascade-slide-left {
+            animation: cascade-from-left 0.8s ease-out forwards;
+          }
+          .cascade-slide-right {
+            animation: cascade-from-right 0.8s ease-out forwards;
+          }
+          @keyframes cascade-from-left {
+            from { opacity: 0; transform: translateX(-80px) scale(0.95); }
+            to { opacity: 1; transform: translateX(0) scale(1); }
+          }
+          @keyframes cascade-from-right {
+            from { opacity: 0; transform: translateX(80px) scale(0.95); }
+            to { opacity: 1; transform: translateX(0) scale(1); }
+          }
+          .cascade-card {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 153, 0, 0.12);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: cascade-hover 5s ease-in-out infinite;
+          }
+          @keyframes cascade-hover {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+          }
+          .cascade-card:hover {
+            transform: translateY(-8px) scale(1.01) !important;
+            box-shadow: 0 20px 50px rgba(255, 153, 0, 0.18);
+            animation-play-state: paused;
+          }
+          .cascade-card-accent {
+            position: absolute;
+            top: 0; left: 0; width: 5px; height: 100%;
+            background: linear-gradient(180deg, #FF9900, #FF7A00, #FFB84D, #00A1E0);
+            background-size: 100% 300%;
+            animation: accent-slide 4s linear infinite;
+            border-radius: 4px 0 0 4px;
+          }
+          @keyframes accent-slide {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 0% 300%; }
+          }
+          .cascade-title {
             color: #232f3e;
-            font-weight: 700;
-            font-size: 1.45rem;
+            font-weight: 800;
+            font-size: 1.35rem;
+            padding-left: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+          }
+          .cascade-number {
+            color: #FF9900;
+            font-size: 0.85rem;
+            font-weight: 800;
+            opacity: 0.5;
+            margin-right: 4px;
+          }
+          .skill-chip {
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(0,0,0,0.06);
+            transition: all 0.3s ease;
+          }
+          .skill-chip:hover {
+            background: rgba(255, 153, 0, 0.08);
+            border-color: rgba(255, 153, 0, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 153, 0, 0.12);
           }
 
           /* AWS gradient text */
@@ -230,81 +323,6 @@ export default function SkillsSection() {
             font-size: clamp(1.5rem, 3vw, 3rem);
           }
 
-          /* Vertical Icon Sidebar */
-          .vertical-icon-sidebar {
-            position: fixed;
-            top: 50%;
-            right: 32px;
-            transform: translateY(-50%);
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            background: rgba(30, 41, 59, 0.45);
-            border-radius: 2rem;
-            padding: 2rem 0.7rem;
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
-            backdrop-filter: blur(16px);
-            z-index: 100;
-          }
-
-          .icon-nav-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            background: transparent;
-            color: #232f3e;
-            font-size: 2rem;
-            transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.18s;
-            border: none;
-            outline: none;
-            box-shadow: none;
-            margin: 0 auto;
-            position: relative;
-            cursor: pointer;
-          }
-          .icon-nav-btn:hover,
-          .icon-nav-btn:focus {
-            background: linear-gradient(135deg, #ff9900 0%, #232f3e 100%);
-            color: #fff;
-            box-shadow: 0 4px 24px rgba(255, 153, 0, 0.25);
-            transform: scale(1.12);
-          }
-          .icon-nav-btn.active {
-            background: #ff9900;
-            color: #fff;
-            box-shadow: 0 2px 12px rgba(255, 153, 0, 0.18);
-          }
-          .icon-tooltip {
-            position: absolute;
-            right: 60px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: #232f3e;
-            color: #fff;
-            font-weight: 700;
-            font-size: 1.05rem;
-            padding: 8px 18px;
-            border-radius: 8px;
-            box-shadow: 0 4px 16px rgba(255, 153, 0, 0.10);
-            opacity: 0;
-            pointer-events: none;
-            white-space: nowrap;
-            transition: opacity 0.18s, right 0.18s, background 0.18s, color 0.18s;
-            z-index: 10;
-            border: 2px solid #ff9900;
-            letter-spacing: 0.5px;
-          }
-          .icon-nav-btn:hover .icon-tooltip,
-          .icon-nav-btn:focus .icon-tooltip {
-            opacity: 1;
-            right: 58px;
-            background: linear-gradient(90deg, #ff9900 0%, #ff7a00 100%);
-            color: #232f3e;
-            border-color: #ff7a00;
-          }
 
           @keyframes aws-gradient-shift {
             0%, 100% { background-position: 0% 50%; }
@@ -316,19 +334,44 @@ export default function SkillsSection() {
             50% { background-position: 100% 50%; }
           }
 
-          @media (max-width: 1200px) {
-            .skill-category-card {
-              width: 100% !important;
-              max-width: 500px;
-            }
-          }
-
           @media (max-width: 768px) {
-            .skill-category-card {
-              margin-bottom: 2rem;
+            .cascade-card-wrapper {
+              margin-left: 0 !important;
+              margin-right: 0 !important;
             }
             .skills-section {
-              padding: 2rem 1rem 4rem;
+              padding: 80px 0.75rem 3rem !important;
+            }
+            .skill-chip {
+              padding: 6px 10px !important;
+            }
+            .skill-chip span {
+              font-size: 13px !important;
+            }
+            .cascade-card {
+              padding: 1rem !important;
+            }
+            .cascade-title {
+              font-size: 1.1rem;
+            }
+            .skills-cascade-container {
+              gap: 1rem;
+              padding: 0 0.25rem;
+            }
+          }
+          @media (max-width: 480px) {
+            .skills-section {
+              padding: 70px 0.5rem 2rem !important;
+            }
+            .cascade-card {
+              padding: 0.8rem !important;
+            }
+            .skill-chip {
+              padding: 4px 8px !important;
+              gap: 4px !important;
+            }
+            .skill-chip span {
+              font-size: 11px !important;
             }
           }
         `}</style>

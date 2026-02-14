@@ -4,10 +4,10 @@ import { useEffect, useRef } from "react";
 import Typed from "typed.js";
 import Link from "next/link";
 import { 
-  MdHome, MdPerson, MdBuild, MdWork, MdSchool, MdEmojiEvents,
+  MdPerson, MdBuild, MdWork, MdSchool,
   MdCode, MdCloud
 } from "react-icons/md";
-import { FiGrid, FiMail, FiDownload } from "react-icons/fi";
+import { FiDownload, FiMail } from "react-icons/fi";
 import { SiJavascript, SiReact, SiNodedotjs, SiMongodb, SiExpress, SiMysql } from "react-icons/si";
 
 export default function AboutSection() {
@@ -31,18 +31,11 @@ export default function AboutSection() {
     return () => typed.destroy();
   }, []);
 
-  const navItems = [
-    { name: "Home", path: "/", icon: <MdHome /> },
-    { name: "About", path: "/about", icon: <MdPerson /> },
-    { name: "Skills", path: "/skills", icon: <MdBuild /> },
-    { name: "Projects", path: "/projects", icon: <FiGrid /> },
-    { name: "Education & Certifications", path: "/education", icon: <MdEmojiEvents  /> },
-    ];
 
   const achievements = [
-    { icon: <MdCode />, title: "200+", subtitle: "LeetCode Problems Solved" },
-    { icon: <SiReact />, title: "150+", subtitle: "SkillRack Exercises" },
-    { icon: <MdWork />, title: "MERN", subtitle: "Stack Internship" },
+    { icon: <MdCode />, title: "150+", subtitle: "LeetCode Problems (Rating: 1572)" },
+    { icon: <SiReact />, title: "300+", subtitle: "SkillRack Problems" },
+    { icon: <MdWork />, title: "50+", subtitle: "GFG Problems (Rank: 497)" },
     { icon: <MdCloud />, title: "3+", subtitle: "Major Projects" }
   ];
 
@@ -98,15 +91,16 @@ export default function AboutSection() {
                       Who I Am
                     </h3>
                     <p className="fs-5 text-muted mb-4 bio-text">
-                      Passionate Full Stack Developer with a focus on building scalable, high-performance applications. 
-                      I&#39;m eager to tackle dynamic challenges and leverage the MERN stack to craft responsive user interfaces. 
-                      I bring demonstrated expertise in backend development, API integration, and cloud deployment, and I&#39;m 
-                      excited to drive innovative projects forward.
+                      Passionate Full Stack Developer with hands-on experience in building scalable MERN stack applications
+                      and FastAPI-powered backends. I&#39;ve completed a MERN Stack Internship at G-Zoft Tech Solutions where
+                      I built and deployed a data warehouse solution. With 500+ coding problems solved across LeetCode,
+                      GeeksforGeeks, and SkillRack, I bring strong problem-solving skills to every project.
                     </p>
                     <p className="fs-6 text-muted bio-text">
-                      Currently pursuing Bachelor of Technology in Artificial Intelligence & Data Science at 
-                      Sri Eshwar College of Engineering, Coimbatore (2023-2027). My journey in tech started with 
-                      solving algorithmic challenges and has evolved into creating full-stack applications that make a difference.
+                      Currently pursuing B.Tech in Artificial Intelligence &amp; Data Science at
+                      Sri Eshwar College of Engineering, Coimbatore (2023-2027) with a CGPA of 8.05.
+                      My expertise spans from IEEE paper generation tools to AI-powered fraud detection systems,
+                      with a strong foundation in DevOps (Docker, Jenkins, CI/CD) and cloud technologies.
                     </p>
                   </div>
                 </div>
@@ -169,10 +163,15 @@ export default function AboutSection() {
                         <p className="small text-muted mb-1">Sri Eshwar College of Engineering</p>
                         <p className="small fw-semibold aws-text">2023 - 2027 | CGPA: 8.05</p>
                       </div>
-                      <div className="education-item">
-                        <h5 className="h6 fw-bold mb-1">Higher Secondary Certificate</h5>
+                      <div className="education-item mb-3">
+                        <h5 className="h6 fw-bold mb-1">Higher Secondary Certificate (HSC)</h5>
                         <p className="small text-muted mb-1">Government Higher Secondary School</p>
-                        <p className="small fw-semibold aws-text">2021 - 2023 | 89%</p>
+                        <p className="small fw-semibold aws-text">2021 - 2023 | 89.6%</p>
+                      </div>
+                      <div className="education-item">
+                        <h5 className="h6 fw-bold mb-1">SSLC</h5>
+                        <p className="small text-muted mb-1">Vivekam Matric Higher Sec School</p>
+                        <p className="small fw-semibold aws-text">2020 - 2021 | PASS</p>
                       </div>
                     </div>
                   </div>
@@ -184,7 +183,7 @@ export default function AboutSection() {
                       </h4>
                       <div className="contact-item mb-3">
                         <p className="small text-muted mb-1">Email</p>
-                        <p className="fw-semibold">malarharish007@gmail.com</p>
+                        <p className="fw-semibold">harish.s2023ai-ds@sece.ac.in</p>
                       </div>
                       <div className="contact-item mb-4">
                         <p className="small text-muted mb-1">Phone</p>
@@ -216,7 +215,7 @@ export default function AboutSection() {
                 <div className="d-flex flex-column flex-sm-row gap-3 mt-5 fade-in-animation" style={{animationDelay: '1.1s'}}>
                   <a 
                     className="btn btn-primary btn-lg px-4 py-3 fw-semibold rounded-3 custom-btn-primary"
-                    href="https://drive.google.com/uc?export=download&id=1ZsFBGOmW9Xe6Frl0TI_q301LY9IodqZy"
+                    href="https://drive.google.com/uc?export=download&id=1-BQzCRvUl1lOwNXD6p5dEvMKPRZ_Yp4Y"
                     download
                     target="_blank"
                     rel="noopener noreferrer"
@@ -234,21 +233,6 @@ export default function AboutSection() {
           </div>
         </div>
 
-        {/* Vertical Icon Sidebar */}
-        <div className="vertical-icon-sidebar right">
-          {navItems.map((item, idx) => (
-            <Link
-              key={item.name}
-              href={item.path}
-              className={`icon-nav-btn${item.path === '/about' ? " active" : ""}`}
-              tabIndex={0}
-              aria-label={item.name}
-            >
-              <span className="icon">{item.icon}</span>
-              <span className="icon-tooltip">{item.name}</span>
-            </Link>
-          ))}
-        </div>
 
         {/* Styles (same as previously provided, keep SCSS part unchanged except .navigation-sidebar is now unused) */}
         <style jsx>{`
@@ -355,19 +339,25 @@ export default function AboutSection() {
           @keyframes pulse-slow { 0%,100%{transform:scale(1) rotate(45deg);opacity:0.15;} 50%{transform:scale(1.1) rotate(225deg);opacity:0.25;} }
           @keyframes spin-slow { from {transform:rotate(0deg);} to{transform:rotate(360deg);} }
 
-          .vertical-icon-sidebar {
-            position: fixed; top: 50%; right: 32px; transform: translateY(-50%);
-            display: flex; flex-direction: column; gap: 1.5rem;
-            background: rgba(30,41,59,0.45); border-radius: 2rem; padding: 2rem 0.7rem;
-            box-shadow: 0 8px 32px 0 rgba(31,38,135,0.18); backdrop-filter: blur(16px); z-index: 100;
-          }
-          .icon-nav-btn { display: flex; align-items: center; justify-content: center; width: 48px; height: 48px; border-radius: 50%; background: transparent; color: #232F3E; font-size: 2rem; transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.18s; border: none; outline: none; box-shadow: none; margin: 0 auto; position: relative; cursor: pointer; }
-          .icon-nav-btn:hover, .icon-nav-btn:focus { background: linear-gradient(135deg, #FF9900 0%, #232F3E 100%); color: #fff; box-shadow: 0 4px 24px rgba(255, 153, 0, 0.25); transform: scale(1.12);}
-          .icon-nav-btn.active { background: #FF9900; color: #fff; box-shadow: 0 2px 12px rgba(255,153,0,0.18);}
-          .icon-tooltip { position: absolute; right: 60px; top: 50%; transform: translateY(-50%); background: #232F3E; color: #fff; font-weight: 700; font-size: 1.05rem; padding: 8px 18px; border-radius: 8px; box-shadow: 0 4px 16px rgba(255,153,0,0.10); opacity: 0; pointer-events: none; white-space: nowrap; transition: opacity 0.18s,right 0.18s,background 0.18s,color 0.18s; z-index: 10; border: 2px solid #FF9900; letter-spacing: 0.5px;}
-          .icon-nav-btn:hover .icon-tooltip, .icon-nav-btn:focus .icon-tooltip { opacity: 1; right: 58px; background: linear-gradient(90deg, #FF9900 0%, #FF7A00 100%); color: #232F3E; border-color: #FF7A00; }
           @media (max-width: 1200px) { .about-content-container { max-width: none; } }
-          @media (max-width: 768px) { .about-content-container { text-align: center; } .main-content { padding: 0 20px; } .achievement-card, .tech-card { margin-bottom: 1rem; } }
+          @media (max-width: 768px) {
+            .about-content-container { text-align: center; }
+            .main-content { padding: 0 16px; }
+            .achievement-card, .tech-card { margin-bottom: 1rem; }
+            .about-section { padding-top: 80px !important; padding-bottom: 3rem !important; }
+            .bio-card { padding: 1.2rem !important; }
+            .bio-text { font-size: 0.95rem !important; text-align: left; }
+            .section-title { justify-content: center; font-size: 1.1rem; }
+            .achievement-number { font-size: 1.4rem; }
+            .achievement-icon { font-size: 2rem; }
+            .tech-icon { font-size: 2rem; }
+          }
+          @media (max-width: 480px) {
+            .main-content { padding: 0 10px; }
+            .bio-card { padding: 1rem !important; }
+            .bio-text { font-size: 0.88rem !important; }
+            .achievement-number { font-size: 1.2rem; }
+          }
         `}</style>
       </section>
     </>

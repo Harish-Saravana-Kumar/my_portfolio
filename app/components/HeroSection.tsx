@@ -4,10 +4,6 @@ import { useEffect, useRef } from "react";
 import Image from "next/image";
 import Typed from "typed.js";
 import Link from "next/link";
-import { 
-  MdHome, MdPerson, MdBuild, MdWork, MdSchool, MdEmojiEvents
-} from "react-icons/md";
-import { FiGrid, FiMail } from "react-icons/fi";
 
 export default function HeroSection() {
   const el = useRef(null);
@@ -30,13 +26,6 @@ export default function HeroSection() {
     return () => typed.destroy();
   }, []);
 
-  const navItems = [
-    { name: "Home", path: "/", icon: <MdHome /> },
-    { name: "About", path: "/about", icon: <MdPerson /> },
-    { name: "Skills", path: "/skills", icon: <MdBuild /> },
-    { name: "Projects", path: "/projects", icon: <FiGrid /> },
-    { name: "Education & Certifications", path: "/education", icon: <MdEmojiEvents /> },
-  ];
 
   return (
     <>
@@ -97,18 +86,18 @@ export default function HeroSection() {
                 </h2>
                 
                 <p className="fs-5 text-muted mb-5 fade-in-animation description-text" style={{animationDelay: '0.7s'}}>
-                  Welcome to my portfolio! I build scalable, cloud-native solutions and love solving complex problems with cutting-edge technology.
+                  Full Stack Developer &amp; AI/DS student specializing in MERN stack, FastAPI, and cloud-native solutions. 500+ coding problems solved across LeetCode, GeeksforGeeks &amp; SkillRack.
                 </p>
                 
                 
-                <div className="d-flex flex-column flex-sm-row gap-3 mb-5 fade-in-animation" style={{animationDelay: '1s'}}>
+                <div className="d-flex flex-column flex-sm-row gap-3 mb-5 fade-in-animation hero-buttons-container" style={{animationDelay: '1s'}}>
                   <Link href="/projects" className="text-decoration-none">
-                    <button className="btn btn-primary btn-lg px-4 py-3 fw-semibold rounded-3 custom-btn-primary">
+                    <button className="btn btn-primary btn-lg px-4 py-3 fw-semibold rounded-3 custom-btn-primary w-100">
                       View My Work
                     </button>
                   </Link>
-                  <Link href="/contact" className="text-decoration-none">
-                  <button className="btn btn-outline-warning btn-lg px-4 py-3 fw-semibold rounded-3 custom-btn-secondary">
+                  <Link href="mailto:harish.s2023ai-ds@sece.ac.in" className="text-decoration-none">
+                  <button className="btn btn-outline-warning btn-lg px-4 py-3 fw-semibold rounded-3 custom-btn-secondary w-100">
                     Get In Touch
                   </button>
                   </Link>
@@ -118,21 +107,6 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* Vertical Icon Sidebar - Only this remains for navigation */}
-        <div className="vertical-icon-sidebar right">
-          {navItems.map((item, idx) => (
-            <Link
-              key={item.name}
-              href={item.path}
-              className={`icon-nav-btn${idx === 0 ? " active" : ""}`}
-              tabIndex={0}
-              aria-label={item.name}
-            >
-              <span className="icon">{item.icon}</span>
-              <span className="icon-tooltip">{item.name}</span>
-            </Link>
-          ))}
-        </div>
 
         <style jsx>{`
           .hero-section {
@@ -474,13 +448,53 @@ export default function HeroSection() {
               margin-left: 0;
               text-align: center;
               max-width: none;
+              padding: 0 8px;
             }
             .navigation-sidebar {
               margin-left: 0;
               margin-top: 30px;
             }
             .main-content {
-              padding: 0 20px;
+              padding: 0 16px;
+            }
+            .hero-section {
+              min-height: 100vh;
+              padding-top: 60px;
+            }
+            .main-title {
+              font-size: clamp(2rem, 10vw, 3.5rem) !important;
+            }
+            .typing-container {
+              font-size: clamp(1.2rem, 5vw, 2rem) !important;
+              min-height: 2.5rem !important;
+            }
+            .description-text {
+              font-size: 0.95rem !important;
+              padding: 0 4px;
+            }
+            .sliding-image {
+              width: 250px !important;
+            }
+            .sliding-image-outer {
+              display: none;
+            }
+          }
+
+          @media (max-width: 480px) {
+            .text-content-container {
+              padding: 0 4px;
+            }
+            .main-content {
+              padding: 0 12px;
+            }
+            .main-title {
+              font-size: clamp(1.8rem, 9vw, 2.8rem) !important;
+            }
+            .typing-container {
+              font-size: clamp(1rem, 4.5vw, 1.6rem) !important;
+            }
+            .description-text {
+              font-size: 0.88rem !important;
             }
           }
 
@@ -614,91 +628,7 @@ export default function HeroSection() {
             line-height: 1;
           }
 
-          /* Vertical Icon Sidebar */
-          .vertical-icon-sidebar {
-            position: fixed;
-            top: 50%;
-            right: 32px;         /* Place on the right */
-            /* left: 32px; */     /* Remove or comment out this line */
-            transform: translateY(-50%);
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            background: rgba(30, 41, 59, 0.45);
-            border-radius: 2rem;
-            padding: 2rem 0.7rem;
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
-            backdrop-filter: blur(16px);
-            z-index: 100;
-          }
 
-          .icon-nav-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            background: transparent;
-            color: #232F3E; /* AWS dark blue */
-            font-size: 2rem;
-            transition: 
-              background 0.2s, 
-              color 0.2s, 
-              box-shadow 0.2s, 
-              transform 0.18s;
-            border: none;
-            outline: none;
-            box-shadow: none;
-            margin: 0 auto;
-            position: relative;
-            cursor: pointer;
-          }
-
-          .icon-nav-btn:hover,
-          .icon-nav-btn:focus {
-            background: linear-gradient(135deg, #FF9900 0%, #232F3E 100%);
-            color: #fff;
-            box-shadow: 0 4px 24px rgba(255, 153, 0, 0.25);
-            transform: scale(1.12);
-          }
-
-          .icon-nav-btn.active,
-          .icon-nav-btn[aria-current="page"] {
-            background: #FF9900;
-            color: #fff;
-            box-shadow: 0 2px 12px rgba(255, 153, 0, 0.18);
-          }
-
-          .icon-tooltip {
-            position: absolute;
-            right: 60px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: #232F3E;
-            color: #fff;
-            font-weight: 700;
-            font-size: 1.05rem;
-            padding: 8px 18px;
-            border-radius: 8px;
-            box-shadow: 0 4px 16px rgba(255, 153, 0, 0.10);
-            opacity: 0;
-            pointer-events: none;
-            white-space: nowrap;
-            transition: opacity 0.18s, right 0.18s, background 0.18s, color 0.18s;
-            z-index: 10;
-            border: 2px solid #FF9900;
-            letter-spacing: 0.5px;
-          }
-
-          .icon-nav-btn:hover .icon-tooltip,
-          .icon-nav-btn:focus .icon-tooltip {
-            opacity: 1;
-            right: 58px;
-            background: linear-gradient(90deg, #FF9900 0%, #FF7A00 100%);
-            color: #232F3E;
-            border-color: #FF7A00;
-          }
         `}</style>
       </section>
     </>
